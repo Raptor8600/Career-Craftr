@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerCraftr | Professional Interactive Resumes</title>
+  <meta name="description" content="Professional portfolio and resume built with CareerCraftr.">
+  <!-- CareerCraftr SaaS Platform - Developed by Raptor8600 -->
+  <!-- Built by Raptor8600 -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- SortableJS for Drag and Drop -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="#" class="logo" data-editable="true">[Your Name]</a>
+
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="#" class="btn btn-sm btn-gold" id="resume-link" download>
+            <span id="resume-text" data-editable="true">[Download Resume]</span>
+          </a>
+        </li>
+        <!-- Auth Controls -->
+        <li id="auth-controls">
+          <button id="login-btn" class="btn btn-sm btn-outline" style="margin-left: 1rem;">Log In</button>
+          <div id="user-display" class="navbar-user hidden">
+            <button id="upgrade-btn" class="btn btn-sm btn-gold hidden" style="margin-right:0.5rem;">Upgrade</button>
+            <span class="user-email hidden-mobile"></span>
+
+            <!-- Settings Icon Button -->
+            <button id="settings-btn" class="btn btn-sm"
+              style="background: transparent; border: 1px solid #ddd; padding: 0.5rem; margin-right: 0.5rem;"
+              title="Settings">
+              <i data-lucide="settings"></i>
+            </button>
+            <button id="logout-btn" class="btn btn-sm btn-outline" style="border: none; padding: 0.2rem;">Log
+              Out</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <div class="hero-content animate-fade-up">
+        <h1 data-editable="true" id="hero-name">Hello, I'm <span class="highlight">[Your Name]</span></h1>
+        <h2 data-editable="true" id="hero-title">[Your Professional Title]</h2>
+        <p data-editable="true" id="hero-bio">
+          A passionate professional dedicated to [Core Value or Field].
+          I specialize in [Skill 1], [Skill 2], and delivering impactful results in the [Industry Name] sector.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Get in Touch</a>
+          <a href="#experience" class="btn btn-outline">View Work</a>
+        </div>
+      </div>
+      <div class="hero-image animate-fade-up delay-1">
+        <div class="profile-photo-placeholder">
+          <!-- Generic Placeholder SVG -->
+          <img
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232C3E50'/%3E%3Ccircle cx='50' cy='40' r='15' fill='%2318BC9C'/%3E%3Cpath d='M25 80 Q50 50 75 80' stroke='%2318BC9C' stroke-width='4' fill='none'/%3E%3Ctext x='50' y='92' font-family='sans-serif' font-size='8' fill='%23ffffff' text-anchor='middle'%3EClick to Upload%3C/text%3E%3C/svg%3E"
+            alt="Profile" data-editable-image="true" id="profile-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <div class="line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text animate-fade-up">
+          <h3 data-editable="true">My Journey</h3>
+          <p data-editable="true">
+            [Write a compelling bio here. Focus on your background, your education, and what drives you professionally.
+            Mention key achievements and your career philosophy.]
+          </p>
+          <p data-editable="true">
+            [Add a second paragraph about your soft skills, leadership style, or personal interests that align with your
+            career goals.]
+          </p>
+
+          <div class="education-block">
+            <h4>Education</h4>
+            <div data-editable="true">
+              <p class="university">[University Name]</p>
+              <p>[Degree Program], [Year]</p>
+              <p>Honors: [Honors/Awards]</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-skills animate-fade-up delay-1">
+          <div class="skills-card">
+            <h3>Core Competencies</h3>
+
+            <div class="skill-group">
+              <h4>Professional Skills</h4>
+              <div class="tags" data-editable="true">
+                <span class="tag">Strategic Planning</span>
+                <span class="tag">Market Analysis</span>
+                <span class="tag">Project Management</span>
+                <span class="tag">Public Speaking</span>
+                <span class="tag">Leadership</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h4>Tools & Technologies</h4>
+              <div class="tags" data-editable="true">
+                <span class="tag">Microsoft Office</span>
+                <span class="tag">Google Suite</span>
+                <span class="tag">Data Analytics Tools</span>
+                <span class="tag">CRM Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section bg-light" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2>Professional Experience</h2>
+        <div class="line"></div>
+      </div>
+
+      <div class="experience-grid">
+        <!-- Job 1 -->
+        <div class="experience-card animate-fade-up">
+          <div class="exp-header">
+            <div>
+              <h3 data-editable="true">[Job Title]</h3>
+              <p class="company" data-editable="true">[Company / Organization Name]</p>
+            </div>
+            <div class="exp-meta" data-editable="true">
+              <p>[Location]</p>
+              <p>[Start Date] – [End Date]</p>
+            </div>
+          </div>
+          <div class="exp-body" data-editable="true">
+            <ul>
+              <li>[Key achievement or responsibility. Start with a strong action verb.]</li>
+              <li>[Another success metric or project lead.]</li>
+              <li>[Collaborated with X team to achieve Y result.]</li>
+            </ul>
+          </div>
+          <div class="tech-stack" data-editable="true">
+            <span>Skill A</span>
+            <span>Skill B</span>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="experience-card animate-fade-up delay-1">
+          <div class="exp-header">
+            <div>
+              <h3 data-editable="true">[Previous Job Title]</h3>
+              <p class="company" data-editable="true">[Company / Organization Name]</p>
+            </div>
+            <div class="exp-meta" data-editable="true">
+              <p>[Location]</p>
+              <p>[Start Date] – [End Date]</p>
+            </div>
+          </div>
+          <div class="exp-body" data-editable="true">
+            <ul>
+              <li>[Key achievement or responsibility.]</li>
+              <li>[Managed X budget or Y team.]</li>
+              <li>[Implemented Z initiative.]</li>
+            </ul>
+          </div>
+          <div class="tech-stack" data-editable="true">
+            <span>Skill C</span>
+            <span>Skill D</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Experience Button (only visible in edit mode) -->
+      <div class="text-center" style="margin-top: 2rem;">
+        <button id="add-experience-btn" class="btn btn-gold hidden" style="display: none;">
+          + Add Experience
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitions and Awards Section -->
+  <section class="section" id="awards">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-editable="true">Competitions and Awards</h2>
+        <div class="line"></div>
+      </div>
+
+      <div class="experience-grid awards-grid">
+        <!-- Example Award -->
+        <div class="experience-card animate-fade-up">
+          <div class="exp-header">
+            <div>
+              <h3 data-editable="true">[Award Name / Title]</h3>
+              <p class="company" data-editable="true">[Issuing Organization / Event]</p>
+            </div>
+            <div class="exp-meta" data-editable="true">
+              <p>[Location]</p>
+              <p>[Date Received]</p>
+            </div>
+          </div>
+          <div class="exp-body" data-editable="true">
+            <p>[Brief description of the award, criteria, or what you did to win it.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Award Button (only visible in edit mode) -->
+      <div class="text-center" style="margin-top: 2rem;">
+        <button id="add-award-btn" class="btn btn-gold hidden" style="display: none;">
+          + Add Competition/Award
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Portfolio Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>Key Projects</h2>
+        <div class="line"></div>
+      </div>
+
+      <!-- Horizontal Scrollable Carousel -->
+      <div class="projects-carousel">
+        <!-- Project 1 -->
+        <div class="experience-card project-card">
+          <h3 data-editable="true">[Project Title A]</h3>
+          <p class="company" data-editable="true">[Project Subtitle / Context]</p>
+          <div class="spacer" style="height: 1rem;"></div>
+          <div class="project-image-container"
+            style="margin-bottom: 1rem; height: 150px; background: #eee; border-radius: 4px; overflow:hidden;">
+            <!-- Placeholder Image -->
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-size='20' fill='%23999' text-anchor='middle' dy='.3em'%3EProject Image%3C/text%3E%3C/svg%3E"
+              style="width: 100%; height: 100%; object-fit: cover;" alt="Project A" data-editable-image="true">
+          </div>
+          <div class="exp-body" data-editable="true">
+            <p>[Brief description of the project. What was the goal? How was it achieved?]</p>
+          </div>
+          <div class="tech-stack" data-editable="true">
+            <span>Strategy</span>
+            <span>Research</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="experience-card project-card">
+          <h3 data-editable="true">[Project Title B]</h3>
+          <p class="company" data-editable="true">[Project Subtitle / Context]</p>
+          <div class="spacer" style="height: 1rem;"></div>
+          <div class="project-image-container"
+            style="margin-bottom: 1rem; height: 150px; background: #eee; border-radius: 4px; overflow:hidden;">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-size='20' fill='%23999' text-anchor='middle' dy='.3em'%3EProject Image%3C/text%3E%3C/svg%3E"
+              style="width: 100%; height: 100%; object-fit: cover;" alt="Project B" data-editable-image="true">
+          </div>
+          <div class="exp-body" data-editable="true">
+            <p>[Brief description of the project. What was the outcome? What tools were used?]</p>
+          </div>
+          <div class="tech-stack" data-editable="true">
+            <span>Analysis</span>
+            <span>Design</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="experience-card project-card">
+          <h3 data-editable="true">[Project Title C]</h3>
+          <p class="company" data-editable="true">[Project Subtitle / Context]</p>
+          <div class="spacer" style="height: 1rem;"></div>
+          <div class="project-image-container"
+            style="margin-bottom: 1rem; height: 150px; background: #eee; border-radius: 4px; overflow:hidden;">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-size='20' fill='%23999' text-anchor='middle' dy='.3em'%3EProject Image%3C/text%3E%3C/svg%3E"
+              style="width: 100%; height: 100%; object-fit: cover;" alt="Project C" data-editable-image="true">
+          </div>
+          <div class="exp-body" data-editable="true">
+            <p>[Description of a third project to demonstrate versatility.]</p>
+          </div>
+          <div class="tech-stack" data-editable="true">
+            <span>Development</span>
+            <span>Launch</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots">
+        <!-- Dots generated by JS -->
+      </div>
+
+      <!-- Add Project Button (only visible in edit mode) -->
+      <div class="text-center" style="margin-top: 2rem;">
+        <button id="add-project-btn" class="btn btn-gold hidden" style="display: none;">
+          + Add Project
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section bg-dark text-white" id="contact">
+    <div class="container contact-container">
+      <div class="contact-header">
+        <h2>Let's Connect</h2>
+        <div class="line" style="background-color: var(--color-secondary);"></div>
+        <br>
+        <p data-editable="true">
+          I am currently open to opportunities in [Industry/Role].
+          Feel free to reach out via email or connect with me on LinkedIn.
+        </p>
+      </div>
+      <div class="contact-actions">
+        <a href="mailto:email@example.com" class="btn btn-gold" data-editable-link="true">
+          Email Me
+        </a>
+        <a href="https://linkedin.com" class="btn btn-outline" style="color: white; border-color: white;"
+          data-editable-link="true">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year">2026</span> Raptor. All rights reserved.</p>
+      <div style="margin-top: 10px; font-size: 0.8rem; color: #6B7C93; opacity: 0.8;">
+        Platform Developed by Raptor8600 | Built on CareerCraftr
+      </div>
+      <div style="margin-top: 10px; opacity: 0.3; font-size: 0.8rem;">
+        <a href="#" id="admin-trigger" class="hidden">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Admin Bar (Hidden by default) -->
+  <div id="admin-bar" class="admin-bar hidden">
+    <div class="container admin-bar-content">
+      <div>
+        <strong>Edit Mode</strong>
+      </div>
+      <div style="display: flex; gap: 1rem;">
+        <button id="share-btn" class="btn btn-sm btn-outline"
+          style="border-color: #18BC9C; color: #18BC9C;">Share</button>
+        <button id="save-btn" class="btn btn-sm btn-gold">Save Changes</button>
+        <button id="cancel-btn" class="btn btn-sm btn-outline"
+          style="border-color: white; color: white;">Discard</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="auth-modal" class="auth-modal hidden">
+    <div class="auth-box">
+      <span id="auth-close" class="auth-close">&times;</span>
+      <h2 id="auth-title">Log In</h2>
+      <div id="auth-disclaimer" class="hidden"
+        style="background: #fff3cd; color: #856404; padding: 0.8rem; margin-bottom: 1rem; border-radius: 4px; font-size: 0.9rem;">
+        <strong>Important:</strong> Please write down your password. Password recovery is not available in this version.
+      </div>
+      <form id="auth-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" id="auth-submit" class="btn btn-gold" style="width: 100%;">Log In</button>
+      </form>
+      <a id="auth-toggle" class="auth-toggle-link">Don't have an account? Sign Up</a>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div id="success-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="success-title">Resume Saved!</h2>
+        <button id="success-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Your resume has been successfully saved to the cloud.</p>
+        <p>You can share your resume using this public link:</p>
+        <div class="share-link-container">
+          <input type="text" id="share-link-input" readonly value="Generating...">
+          <button id="copy-link-btn" class="btn-primary">Copy</button>
+        </div>
+        <div class="modal-actions">
+          <a href="#" target="_blank" id="preview-link-btn" class="btn-outline">Open Public View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WATERMARK -->
+  <div id="careercraftr-watermark" class="hidden">
+    Powered by <strong>CareerCraftr</strong> - Create your resume for free.
+  </div>
+
+  <!-- DEVELOPER INFO MODAL -->
+  <div id="dev-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>About CareerCraftr</h2>
+        <button id="dev-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>CareerCraftr</strong> is a professional interactive resume builder.</p>
+        <p>Developed by <strong>Raptor8600</strong>.</p>
+        <p>Version: 2.0.0 (SaaS Edition)</p>
+        <hr>
+        <p>Features:</p>
+        <ul style="list-style:disc; margin-left:1.5rem;">
+          <li>Supabase Authentication & Storage</li>
+          <li>Real-time visual editor</li>
+          <li>Public shareable links</li>
+          <li>PDF Export</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS MODAL -->
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Account Settings</h2>
+        <button id="settings-close" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-section">
+          <h3>Profile</h3>
+          <p><strong>Email:</strong> <span class="user-email-display"></span></p>
+        </div>
+        <hr>
+        <div class="settings-section">
+          <h3 style="color: #e74c3c;">Danger Zone</h3>
+          <p>Once you delete your account, there is no going back. Please be certain.</p>
+          <button id="delete-account-trigger" class="btn btn-outline"
+            style="color: #e74c3c; border-color: #e74c3c;">Delete My Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRMATION MODAL -->
+  <div id="delete-confirm-modal" class="modal hidden" style="z-index: 5000;">
+    <div class="modal-content" style="max-width: 400px; text-align: center;">
+      <h2 style="color: #e74c3c;">Are you sure?</h2>
+      <p>This action creates a permanent deletion of your account and all saved resume data.</p>
+      <p>This cannot be undone.</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center;">
+        <button id="confirm-delete-final" class="btn" style="background-color: #e74c3c; color: white;">Yes, Delete
+          Forever</button>
+        <button id="cancel-delete" class="btn btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDITOR SIDEBAR -->
+  <div id="editor-sidebar" class="editor-sidebar">
+    <div class="sidebar-header">
+      <h3>Tools</h3>
+      <!-- Close button handled by Discard usually, or add specifics -->
+    </div>
+    <div class="sidebar-content">
+      <div class="tool-section">
+        <h4>Typography</h4>
+        <div class="tool-row">
+          <button class="btn-tool" onclick="document.execCommand('bold')"><i data-lucide="bold"></i></button>
+          <button class="btn-tool" onclick="document.execCommand('italic')"><i data-lucide="italic"></i></button>
+          <button class="btn-tool" onclick="document.execCommand('underline')"><i data-lucide="underline"></i></button>
+        </div>
+      </div>
+
+      <!-- Templates Section (Canva-style) -->
+      <div class="tool-section">
+        <h4>Templates</h4>
+        <p style="font-size: 0.75rem; color: #666; margin-bottom: 1rem;">Drag items to the page</p>
+
+        <!-- Text Templates -->
+        <div class="template-category">
+          <label style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; display: block;">Text
+            Styles</label>
+          <div class="template-btn" data-template="heading">
+            <div class="template-preview">Aa Heading</div>
+          </div>
+          <div class="template-btn" data-template="subheading">
+            <div class="template-preview" style="font-size: 0.9rem;">Aa Subheading</div>
+          </div>
+          <div class="template-btn" data-template="body">
+            <div class="template-preview" style="font-size: 0.8rem;">Aa Body Text</div>
+          </div>
+          <div class="template-btn" data-template="quote">
+            <div class="template-preview" style="font-size: 0.8rem;">❝ Quote</div>
+          </div>
+          <div class="template-btn" data-template="list-ul">
+            <div class="template-preview" style="font-size: 0.8rem;">⁝ Bullet List</div>
+          </div>
+        </div>
+
+        <!-- Section Templates -->
+        <div class="template-category" style="margin-top: 1rem;">
+          <label style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; display: block;">Sections</label>
+          <div class="template-btn" data-template="skills-grid">
+            <div class="template-preview" style="font-size: 0.75rem;">📊 Skills Grid</div>
+          </div>
+          <div class="template-btn" data-template="experience-card">
+            <div class="template-preview" style="font-size: 0.75rem;">💼 Experience Card</div>
+          </div>
+          <div class="template-btn" data-template="project-showcase">
+            <div class="template-preview" style="font-size: 0.75rem;">🚀 Project Showcase</div>
+          </div>
+          <div class="template-btn" data-template="contact-info">
+            <div class="template-preview" style="font-size: 0.75rem;">📧 Contact Info</div>
+          </div>
+        </div>
+
+        <!-- Shapes & Extras -->
+        <div class="template-category" style="margin-top: 1rem;">
+          <label style="font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; display: block;">Shapes &
+            Extras</label>
+          <div class="template-btn" data-template="separator-line">
+            <div class="template-preview" style="font-size: 0.75rem;">── Divider Line</div>
+          </div>
+          <div class="template-btn" data-template="feature-box">
+            <div class="template-preview" style="font-size: 0.75rem;">⬜ Feature Box</div>
+          </div>
+          <div class="template-btn" data-template="button-cta">
+            <div class="template-preview" style="font-size: 0.75rem;">⏹️ CTA Button</div>
+          </div>
+          <div class="template-btn" data-template="spacer">
+            <div class="template-preview" style="font-size: 0.75rem;">↕️ Spacer (3rem)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h4>Colors</h4>
+        <label>Text Color</label>
+        <input type="color" id="editor-color-picker" value="#2C3E50">
+      </div>
+
+      <div class="tool-section">
+        <h4>Resume File</h4>
+        <input type="file" id="resume-file-upload" accept=".pdf" style="display:none;">
+        <button class="btn-tool-full" id="upload-resume-btn">Upload PDF</button>
+        <p id="resume-status" style="font-size: 0.75rem; margin-top: 0.5rem; color: #666;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Main Application (Bundled) -->
+  <script src="app.js"></script>
+  <script>
+    // Initialize Lucide icons immediately
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+
+    // Initialize again after DOM loads to catch any dynamically added icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+
+    // Initialize one more time after a short delay to ensure all elements are ready
+    setTimeout(() => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    }, 500);
+  </script>
+</body>
+
+</html>
